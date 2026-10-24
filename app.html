@@ -1,1 +1,336 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klientská Aplikace | Student Living Modřice</title>
+    
+    <!-- Tailwind CSS & FontAwesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-100 text-slate-800 font-sans antialiased min-h-screen pb-16">
 
+    <!-- Horní Navigace Aplikace -->
+    <header class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <a href="index.html" class="bg-brand-600 p-2 rounded-xl text-white hover:bg-brand-500 transition" title="Zpět na web">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+                <div>
+                    <span class="font-bold text-base block leading-tight">Student Living Aplikace</span>
+                    <span class="text-xs text-slate-400 block">nám. Svobody 79, Modřice</span>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3">
+                <div class="text-right hidden sm:block">
+                    <span class="text-xs font-semibold text-slate-300 block">Jan Novák</span>
+                    <span class="text-[10px] text-emerald-400 font-mono">Pokoj #03 (Shared)</span>
+                </div>
+                <div class="w-9 h-9 bg-brand-600 rounded-full flex items-center justify-center font-bold text-sm shadow-inner">
+                    JN
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hlavní Obsah Aplikace -->
+    <main class="max-w-5xl mx-auto px-4 pt-6 space-y-6">
+
+        <!-- KARTA 1: Přespání & Návštěvy -->
+        <section class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-indigo-50 text-brand-600 rounded-xl flex items-center justify-center text-lg font-bold">
+                        <i class="fa-solid fa-bed"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-bold text-slate-900 text-base">Hlášení návštěv a přespání</h2>
+                        <p class="text-xs text-slate-500">2 zdarma noci / měsíc • Nadlimit 400 Kč/noc</p>
+                    </div>
+                </div>
+                <span id="freeNightsBadge" class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">
+                    Zbývají 2 noci ZDARMA
+                </span>
+            </div>
+
+            <!-- Formulář Nahlášení -->
+            <form id="guestForm" onsubmit="handleGuestSubmit(event)" class="grid sm:grid-cols-3 gap-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                <div>
+                    <label class="block text-[11px] font-bold text-slate-600 uppercase mb-1">Jméno hosta</label>
+                    <input type="text" id="guestName" required placeholder="Nela Dvořáková" class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-brand-600">
+                </div>
+                <div>
+                    <label class="block text-[11px] font-bold text-slate-600 uppercase mb-1">Datum přespání</label>
+                    <input type="date" id="guestDate" required class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-brand-600">
+                </div>
+                <div class="flex items-end">
+                    <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2 px-4 rounded-lg text-xs transition">
+                        Nahlásit návštěvu
+                    </button>
+                </div>
+            </form>
+
+            <!-- Seznam Aktivních Návštěv a Schvalování -->
+            <div class="space-y-2 pt-2">
+                <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider">Aktuální stav žádostí v pokoji #03</h3>
+                
+                <div id="guestList" class="space-y-2">
+                    <div class="bg-amber-50/60 border border-amber-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div class="space-y-0.5">
+                            <div class="flex items-center space-x-2">
+                                <span class="font-bold text-slate-900 text-xs">Petr Svoboda</span>
+                                <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded">Čeká na schválení spolubydlícím</span>
+                            </div>
+                            <p class="text-[11px] text-slate-500">Termín: 28. 10. 2026 • Nahlásil: Jan Novák (Noc #1 - ZDARMA)</p>
+                        </div>
+                        <div id="approvalButtons" class="flex items-center space-x-2">
+                            <button onclick="approveGuest(true)" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-3 py-1.5 rounded-lg text-xs transition flex items-center space-x-1">
+                                <i class="fa-solid fa-check"></i> <span>Schválit</span>
+                            </button>
+                            <button onclick="approveGuest(false)" class="bg-rose-600 hover:bg-rose-700 text-white font-bold px-3 py-1.5 rounded-lg text-xs transition flex items-center space-x-1">
+                                <i class="fa-solid fa-xmark"></i> <span>Neschválit</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KARTA 2: Konto Jistoty, Energie & QR Platby -->
+        <section class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 space-y-5">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center text-lg font-bold">
+                        <i class="fa-solid fa-vault"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-bold text-slate-900 text-base">Konto Jistoty & Spotřeba</h2>
+                        <p class="text-xs text-slate-500">Vratná kauce a měsíční Fair-Use limity</p>
+                    </div>
+                </div>
+                <span class="text-xs font-mono font-bold text-slate-600">VS: 79032026</span>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+                <!-- Stav Kauce -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-2">
+                    <span class="text-xs font-bold text-slate-500 uppercase block">Složená Vratná Kauce</span>
+                    <div class="text-2xl font-black text-slate-900">15 000 Kč</div>
+                    <p class="text-[11px] text-emerald-600 font-medium"><i class="fa-solid fa-circle-check"></i> Kauce je kompletní a bez blokací.</p>
+                </div>
+
+                <!-- Ukazatel Energií -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-2">
+                    <div class="flex justify-between text-xs">
+                        <span class="font-bold text-slate-500 uppercase">Spotřeba energií (Říjen)</span>
+                        <span id="energyPercent" class="font-bold text-slate-900">68 % limitu</span>
+                    </div>
+                    <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                        <div id="energyBar" class="bg-brand-600 h-full rounded-full transition-all duration-500" style="width: 68%;"></div>
+                    </div>
+                    <p class="text-[11px] text-slate-500 flex justify-between">
+                        <span>V rámci all-inclusive limitu</span>
+                        <button onclick="simulateOverlimit()" class="text-brand-600 underline text-[10px]">Test nadlimitu (+500 Kč)</button>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Dynamická QR Platba -->
+            <div id="qrSection" class="hidden bg-rose-50 border border-rose-200 p-4 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="space-y-1 text-center sm:text-left">
+                    <span class="bg-rose-100 text-rose-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Nedoplatek k úhradě</span>
+                    <h4 id="qrTitle" class="font-bold text-slate-900 text-sm">Vyúčtování nadlimitní spotřeby: 500 Kč</h4>
+                    <p class="text-xs text-slate-600">Naskenujte QR kód ve svém bankovnictví pro okamžitou úhradu.</p>
+                </div>
+                <div class="bg-white p-2 rounded-lg border border-slate-200 shadow-sm text-center">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=SPD*1.0*ACC:CZ1234567890/0800*AM:500.00*CC:CZK*MSG:Nadlimit_Energii_Pokoj3" alt="QR Platba" class="w-20 h-20 mx-auto">
+                    <span class="text-[9px] font-mono font-bold text-slate-500 block mt-1">QR PLATBA</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- KARTA 3: Rezervační Kalendář Prádelny -->
+        <section class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-lg font-bold">
+                        <i class="fa-solid fa-shirt"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-bold text-slate-900 text-base">Rezervace Prádelny & Sušičky</h2>
+                        <p class="text-xs text-slate-500">Společná prádelna v přízemí • Vyberte časový slot</p>
+                    </div>
+                </div>
+                <span class="text-xs text-slate-500 font-semibold">Dnes: Dnes</span>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="laundryGrid">
+                <!-- Slot 1 -->
+                <div class="p-3 rounded-xl border border-slate-200 bg-slate-50 text-center space-y-2">
+                    <span class="text-xs font-bold text-slate-700 block">08:00 - 10:00</span>
+                    <span class="text-[10px] bg-slate-200 text-slate-600 px-2 py-0.5 rounded font-bold block">Obsazeno (Pokoj #01)</span>
+                </div>
+                <!-- Slot 2 -->
+                <div id="slot2" class="p-3 rounded-xl border border-brand-200 bg-brand-50/50 text-center space-y-2">
+                    <span class="text-xs font-bold text-slate-700 block">10:00 - 12:00</span>
+                    <button onclick="toggleSlot('slot2')" class="w-full bg-brand-600 text-white text-xs font-bold py-1 px-2 rounded hover:bg-brand-700 transition">Zarezervovat</button>
+                </div>
+                <!-- Slot 3 -->
+                <div id="slot3" class="p-3 rounded-xl border border-brand-200 bg-brand-50/50 text-center space-y-2">
+                    <span class="text-xs font-bold text-slate-700 block">14:00 - 16:00</span>
+                    <button onclick="toggleSlot('slot3')" class="w-full bg-brand-600 text-white text-xs font-bold py-1 px-2 rounded hover:bg-brand-700 transition">Zarezervovat</button>
+                </div>
+                <!-- Slot 4 -->
+                <div class="p-3 rounded-xl border border-slate-200 bg-slate-50 text-center space-y-2">
+                    <span class="text-xs font-bold text-slate-700 block">16:00 - 18:00</span>
+                    <span class="text-[10px] bg-slate-200 text-slate-600 px-2 py-0.5 rounded font-bold block">Obsazeno (Pokoj #05)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- KARTA 4: Hlášení Závad & Podpora -->
+        <section class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 space-y-4">
+            <div class="flex items-center space-x-3 border-b border-slate-100 pb-3">
+                <div class="w-10 h-10 bg-rose-50 text-rose-600 rounded-xl flex items-center justify-center text-lg font-bold">
+                    <i class="fa-solid fa-wrench"></i>
+                </div>
+                <div>
+                    <h2 class="font-bold text-slate-900 text-base">Hlášení závad & Správa</h2>
+                    <p class="text-xs text-slate-500">Požadavek se odešle správci objektu</p>
+                </div>
+            </div>
+
+            <form onsubmit="handleTicketSubmit(event)" class="space-y-3">
+                <div>
+                    <label class="block text-[11px] font-bold text-slate-600 uppercase mb-1">Předmět / Popis závady</label>
+                    <input type="text" id="ticketText" required placeholder="Např. Kapající vodovodní baterie v koupelně" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-brand-600">
+                </div>
+                <button type="submit" class="bg-slate-900 hover:bg-brand-600 text-white font-bold py-2 px-4 rounded-lg text-xs transition">
+                    Odeslat požadavek správci
+                </button>
+            </form>
+
+            <div id="ticketFeed" class="space-y-2 pt-2">
+                <!-- Dynamické tikety -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- JavaScript Logika Aplikace -->
+    <script>
+        let usedNights = 0;
+
+        function handleGuestSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('guestName').value;
+            const date = document.getElementById('guestDate').value;
+            usedNights++;
+
+            const isFree = usedNights <= 2;
+            const statusText = isFree ? `Noc #${usedNights} - ZDARMA` : `Nadlimit (+400 Kč/noc)`;
+            const badgeColor = isFree ? 'bg-amber-100 text-amber-800' : 'bg-rose-100 text-rose-800';
+
+            const guestList = document.getElementById('guestList');
+            const newItem = document.createElement('div');
+            newItem.className = "bg-slate-50 border border-slate-200 rounded-xl p-3 flex justify-between items-center";
+            newItem.innerHTML = `
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <span class="font-bold text-slate-900 text-xs">${name}</span>
+                        <span class="${badgeColor} text-[10px] font-bold px-2 py-0.5 rounded">${statusText}</span>
+                    </div>
+                    <p class="text-[11px] text-slate-500">Termín: ${date} • Schváleno</p>
+                </div>
+                <span class="text-xs text-emerald-600 font-bold"><i class="fa-solid fa-check"></i> Aktivní</span>
+            `;
+            guestList.prepend(newItem);
+
+            const badge = document.getElementById('freeNightsBadge');
+            if (usedNights >= 2) {
+                badge.className = "bg-rose-100 text-rose-800 text-xs font-bold px-3 py-1 rounded-full";
+                badge.textContent = "Volné noci vyčerpány (400 Kč/noc)";
+            } else {
+                badge.textContent = `Zbývá ${2 - usedNights} noc ZDARMA`;
+            }
+
+            document.getElementById('guestName').value = '';
+            document.getElementById('guestDate').value = '';
+        }
+
+        function approveGuest(approved) {
+            const btns = document.getElementById('approvalButtons');
+            if (approved) {
+                btns.innerHTML = `<span class="text-xs font-bold text-emerald-600"><i class="fa-solid fa-check"></i> Schváleno spolubydlícím</span>`;
+            } else {
+                btns.innerHTML = `<span class="text-xs font-bold text-rose-600"><i class="fa-solid fa-xmark"></i> Zamítnuto</span>`;
+            }
+        }
+
+        function simulateOverlimit() {
+            const qr = document.getElementById('qrSection');
+            qr.classList.remove('hidden');
+            document.getElementById('energyPercent').textContent = "112 % limitu";
+            document.getElementById('energyBar').style.width = "100%";
+            document.getElementById('energyBar').className = "bg-rose-600 h-full rounded-full transition-all duration-500";
+        }
+
+        function toggleSlot(slotId) {
+            const slot = document.getElementById(slotId);
+            if (slot.classList.contains('bg-emerald-50')) {
+                slot.className = "p-3 rounded-xl border border-brand-200 bg-brand-50/50 text-center space-y-2";
+                slot.innerHTML = `
+                    <span class="text-xs font-bold text-slate-700 block">10:00 - 12:00</span>
+                    <button onclick="toggleSlot('${slotId}')" class="w-full bg-brand-600 text-white text-xs font-bold py-1 px-2 rounded hover:bg-brand-700 transition">Zarezervovat</button>
+                `;
+            } else {
+                slot.className = "p-3 rounded-xl border border-emerald-300 bg-emerald-50 text-center space-y-2";
+                slot.innerHTML = `
+                    <span class="text-xs font-bold text-slate-700 block">10:00 - 12:00</span>
+                    <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded block">Rezervováno vámi</span>
+                    <button onclick="toggleSlot('${slotId}')" class="text-[10px] text-rose-600 underline font-semibold block mx-auto">Zrušit</button>
+                `;
+            }
+        }
+
+        function handleTicketSubmit(e) {
+            e.preventDefault();
+            const text = document.getElementById('ticketText').value;
+            const feed = document.getElementById('ticketFeed');
+            
+            const ticket = document.createElement('div');
+            ticket.className = "bg-slate-50 border border-slate-200 p-3 rounded-xl flex justify-between items-center text-xs";
+            ticket.innerHTML = `
+                <div>
+                    <span class="font-bold text-slate-900 block">${text}</span>
+                    <span class="text-[10px] text-slate-400">Odesláno právě teď</span>
+                </div>
+                <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded">V řešení</span>
+            `;
+            feed.prepend(ticket);
+            document.getElementById('ticketText').value = '';
+        }
+    </script>
+</body>
+</html>
