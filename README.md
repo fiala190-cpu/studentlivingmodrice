@@ -1,1 +1,1 @@
-# studentlivingmodrice
+# student-living-modrice
