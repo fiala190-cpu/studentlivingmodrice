@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Living Modřice | Prémiové studentské ubytování u Brna</title>
-    <meta name="description" content="Soukromé studentské bydlení v Modřicích u Brna. Vlastní koupelna a WC na pokoji, all-inclusive energie, vysokorychlostní internet a správa přes mobilní aplikaci.">
+    <meta name="description" content="Soukromé studentské bydlení v Modřicích u Brna. Vlastní koupelna a WC na pokoji, all-inclusive energie, kalkulačka dojezdů na fakulty a správa přes mobilní aplikaci.">
     
     <!-- Tailwind CSS a FontAwesome -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -44,10 +44,10 @@
             </a>
             
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
-                <a href="#vybaveni" class="hover:text-brand-600 transition">Vybavení pokojů</a>
+                <a href="#dojezdy" class="hover:text-brand-600 transition">Dojezdy na univerzity</a>
                 <a href="#apka" class="hover:text-brand-600 transition">Mobilní aplikace</a>
-                <a href="#cenik" class="hover:text-brand-600 transition">Ceník</a>
-                <a href="#lokalita" class="hover:text-brand-600 transition">Dostupnost</a>
+                <a href="#cenik" class="hover:text-brand-600 transition">Ceník pokojů</a>
+                <a href="#rezervace" class="hover:text-brand-600 transition">Rezervace</a>
             </nav>
 
             <div class="flex items-center space-x-3">
@@ -82,9 +82,9 @@
                         <a href="#rezervace" class="bg-brand-600 hover:bg-brand-700 text-white font-bold px-8 py-4 rounded-xl shadow-xl shadow-brand-600/30 transition text-center text-base">
                             Chci nezávaznou rezervaci
                         </a>
-                        <a href="#apka" class="bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 font-semibold px-6 py-4 rounded-xl transition text-center text-base flex items-center justify-center space-x-2">
-                            <i class="fa-solid fa-mobile-screen text-brand-600"></i>
-                            <span>Jak funguje naše aplikace</span>
+                        <a href="#dojezdy" class="bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 font-semibold px-6 py-4 rounded-xl transition text-center text-base flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-clock text-brand-600"></i>
+                            <span>Spočítat dojezd na fakultu</span>
                         </a>
                     </div>
 
@@ -141,6 +141,67 @@
         </div>
     </section>
 
+    <!-- SECKCE: KALKULAČKA DOJEZDOVÝCH ČASŮ -->
+    <section id="dojezdy" class="py-20 bg-slate-100/80 border-y border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+                <span class="text-xs font-bold text-brand-600 uppercase tracking-widest bg-brand-50 px-4 py-1.5 rounded-full border border-brand-100">Dopravní dostupnost Brno</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">Kalkulačka dojezdů na brněnské univerzity</h2>
+                <p class="text-slate-600 text-sm">Ubytování na nám. Svobody 79 v Modřicích se nachází pouhých **100 metrů od zastávky autobusu linky 49** a **1,2 km od konečné tramvaje linky 2**.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- VUT -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-red-100 text-red-600 rounded-xl flex items-center justify-center font-bold">VUT</div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-base">Vysoké učení technické</h3>
+                            <p class="text-xs text-slate-500">FEKT, FIT, FAST, FSI</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 text-xs text-slate-600 pt-2 border-t border-slate-100">
+                        <li class="flex justify-between items-center"><span>FEKT / FIT (Královo Pole):</span><span class="font-bold text-slate-900">~ 25 min (MHD)</span></li>
+                        <li class="flex justify-between items-center"><span>FAST (Veveří):</span><span class="font-bold text-slate-900">~ 22 min (MHD)</span></li>
+                        <li class="flex justify-between items-center"><span>Centrum (Hlavní nádraží):</span><span class="font-bold text-slate-900">~ 15 min</span></li>
+                    </ul>
+                </div>
+
+                <!-- MUNI -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center font-bold">MUNI</div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-base">Masarykova univerzita</h3>
+                            <p class="text-xs text-slate-500">Campus Bohunice, PřF, PrF, ESF</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 text-xs text-slate-600 pt-2 border-t border-slate-100">
+                        <li class="flex justify-between items-center"><span>Campus Bohunice (LF, PřF):</span><span class="font-bold text-slate-900">~ 18 min (Bus 49)</span></li>
+                        <li class="flex justify-between items-center"><span>Právnická / Filozofická:</span><span class="font-bold text-slate-900">~ 24 min (MHD)</span></li>
+                        <li class="flex justify-between items-center"><span>ESF (Pisárky):</span><span class="font-bold text-slate-900">~ 20 min</span></li>
+                    </ul>
+                </div>
+
+                <!-- MENDELU -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center font-bold">MENDELU</div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-base">Mendelova univerzita</h3>
+                            <p class="text-xs text-slate-500">Černá Pole / OC Olympia</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 text-xs text-slate-600 pt-2 border-t border-slate-100">
+                        <li class="flex justify-between items-center"><span>Hlavní kampus (Černá Pole):</span><span class="font-bold text-slate-900">~ 28 min (MHD)</span></li>
+                        <li class="flex justify-between items-center"><span>OC Olympia Modřice:</span><span class="font-bold text-slate-900">~ 3 min (Pěšky/Bus)</span></li>
+                        <li class="flex justify-between items-center"><span>Zastávka Bus 49:</span><span class="font-bold text-slate-900">100 metrů</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Mobilní Aplikace -->
     <section id="apka" class="py-20 bg-slate-900 text-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -156,7 +217,7 @@
                         <i class="fa-solid fa-moon"></i>
                     </div>
                     <h3 class="text-xl font-bold">Přespání & Návštěvy</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">2 noci měsíčně zdarma v ceně. Další přespání snadno nahlásíte v aplikaci (u 2lůžka s potvrzením spolubydlícího tlačítkem Schválit/Neschválit).</p>
+                    <p class="text-slate-400 text-sm leading-relaxed">2 noci měsíčně zdarma v ceně (nadlimit 400 Kč/noc). Další přespání snadno nahlásíte v aplikaci (u 2lůžka s potvrzením spolubydlícího tlačítkem Schválit/Neschválit).</p>
                 </div>
 
                 <div class="bg-slate-800/80 border border-slate-700 p-8 rounded-3xl space-y-4">
@@ -255,7 +316,7 @@
                     <p class="text-sm text-slate-500">Vyplňte nezávaznou žádost. Ozveme se vám do 24 hodin s potvrzením volné kapacity.</p>
                 </div>
 
-                <!-- Propojeno na Formspree -->
+                <!-- Propojeno na Formspree (fiala190@gmail.com) -->
                 <form action="https://formspree.io/f/xkjjowra" method="POST" class="space-y-4">
                     <div class="grid sm:grid-cols-2 gap-4">
                         <div>
