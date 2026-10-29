@@ -1,152 +1,62 @@
-<!DOCTYPE html>
-<html lang="cs" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Living Modřice | nám. Svobody 79</title>
-    
-    <!-- Tailwind CSS & FontAwesome (Zajišťuje správný vzhled a ikony) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#eef2ff',
-                            100: '#e0e7ff',
-                            500: '#6366f1',
-                            600: '#4f46e5',
-                            700: '#4338ca',
-                            900: '#312e81',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-</head>
-<body class="bg-slate-100 text-slate-800 font-sans antialiased min-h-screen">
+<!-- SEKCE: Kompletní přehled dojezdových časů na fakulty -->
+<section class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200/80 space-y-6">
+    <div class="border-b border-slate-100 pb-4">
+        <span class="text-xs font-bold text-brand-600 uppercase tracking-wider block">Srovnání tras MHD z Modřic</span>
+        <h2 class="text-xl font-black text-slate-900">Reálné časy dojezdu na brněnské vysoké školy</h2>
+        <p class="text-xs text-slate-500 mt-1">
+            Zahrnuje celkový čas od domu: <strong>Autobus 49</strong> (nám. Svobody, 1 min. chůze) vs. <strong>Tramvaj 2</strong> (Tyršova, 20 min. chůze).
+        </p>
+    </div>
 
-    <!-- HLAVIČKA WEBU -->
-    <header class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
-        <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="bg-brand-600 p-2 rounded-xl text-white">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                </div>
-                <div>
-                    <span class="font-bold text-base block leading-tight">Student Living Modřice</span>
-                    <span class="text-[10px] text-slate-400 block">nám. Svobody 79</span>
-                </div>
-            </div>
-            <a href="#lokalita" class="bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold px-3 py-2 rounded-xl transition">
-                Doprava & Lokalita
-            </a>
-        </div>
-    </header>
-
-    <!-- HLAVNÍ OBSAH -->
-    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
-
-        <!-- ÚVODNÍ HERO SEKCE -->
-        <section class="bg-gradient-to-br from-brand-900 to-slate-900 text-white rounded-3xl p-8 shadow-xl space-y-4">
-            <span class="bg-brand-500/30 text-brand-200 border border-brand-500/40 text-xs font-bold px-3 py-1 rounded-full inline-block">
-                Moderní ubytování pro studenty v Brně a okolí
-            </span>
-            <h1 class="text-3xl sm:text-4xl font-black">Student Living Modřice</h1>
-            <p class="text-slate-300 text-sm max-w-xl leading-relaxed">
-                Komfortní a plně vybavené bydlení na adrese nám. Svobody 79 s výbornou a rychlou dostupností do centra Brna i na brněnské univerzity.
-            </p>
-        </section>
-
-        <!-- SEKCE: Lokalita a reálná dopravní dostupnost -->
-        <section id="lokalita" class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200/80 space-y-6">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
-                <div>
-                    <span class="text-xs font-bold text-brand-600 uppercase tracking-wider block">Skvělá dopravní dostupnost</span>
-                    <h2 class="text-xl font-black text-slate-900">Lokalita nám. Svobody 79, Modřice</h2>
-                </div>
-                <!-- Přímé tlačítko na IDOS -->
-                <a href="https://idos.idnes.cz/idsjmk/spojeni/?f=Mod%C5%99ice%2C%20n%C3%A1m.%20Svobody" target="_blank" rel="noopener" class="inline-flex items-center justify-center space-x-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-4 py-2.5 rounded-xl text-xs transition shadow-sm">
-                    <i class="fa-solid fa-route"></i>
-                    <span>Vyhledat aktuální spojení na IDOS.cz</span>
-                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1"></i>
-                </a>
-            </div>
-
-            <!-- Přehled zastávek u domu -->
-            <div class="grid sm:grid-cols-2 gap-4">
-                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60 space-y-2">
-                    <div class="flex items-center space-x-2.5 text-brand-600 font-bold text-sm">
-                        <i class="fa-solid fa-bus text-base"></i>
-                        <span>Zastávka Autobusu č. 49</span>
-                    </div>
-                    <p class="text-xs text-slate-700 font-semibold">Modřice, nám. Svobody (1 minuta chůze / 80 m)</p>
-                    <p class="text-[11px] text-slate-500 leading-relaxed">
-                        Hlavní uzel přímo u domu. Přímá linka 49 vás zaveze do nákupního centra Olympia nebo přímo na univerzity a FN Brno (Campus Square).
-                    </p>
-                </div>
-
-                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/60 space-y-2">
-                    <div class="flex items-center space-x-2.5 text-rose-600 font-bold text-sm">
-                        <i class="fa-solid fa-train-tram text-base"></i>
-                    </div>
-                    <p class="text-xs text-slate-700 font-semibold">Modřice, Tyršova — konečná (15 min. chůze / 1,2 km)</p>
-                    <p class="text-[11px] text-slate-500 leading-relaxed">
-                        Příjemná procházka k tramvaji, případně 2 minuty přiblížení autobusem. Tramvaj č. 2 vás zaveze bez přestupu až na Hlavní nádraží v centru Brna.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Karta reálných časů dojezdu na univerzity -->
-            <div class="space-y-3 pt-2">
-                <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider">Reálné časy dojezdů ze zastávky nám. Svobody</h3>
-                
-                <div class="grid sm:grid-cols-2 gap-3">
-                    <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex justify-between items-center text-xs">
-                        <div>
-                            <span class="font-bold text-slate-900 block">Campus Square / FN Brno (MUNI)</span>
-                            <span class="text-[10px] text-slate-500">Bus č. 49 přímo ze zastávky</span>
-                        </div>
-                        <span class="bg-brand-50 text-brand-700 font-black px-2.5 py-1 rounded-lg border border-brand-200">15 min</span>
-                    </div>
-
-                    <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex justify-between items-center text-xs">
-                        <div>
-                            <span class="font-bold text-slate-900 block">Brno, Hlavní nádraží (Centrum)</span>
-                            <span class="text-[10px] text-slate-500">Tram č. 2 ze zastávky Tyršova</span>
-                        </div>
-                        <span class="bg-brand-50 text-brand-700 font-black px-2.5 py-1 rounded-lg border border-brand-200">18 min jízdy</span>
-                    </div>
-
-                    <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex justify-between items-center text-xs">
-                        <div>
-                            <span class="font-bold text-slate-900 block">MUNI (Fakulty v centru — FSS, FF, PrF)</span>
-                            <span class="text-[10px] text-slate-500">Tram č. 2 na Hlavní nádraží + pěšky</span>
-                        </div>
-                        <span class="bg-brand-50 text-brand-700 font-black px-2.5 py-1 rounded-lg border border-brand-200">22–25 min</span>
-                    </div>
-
-                    <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex justify-between items-center text-xs">
-                        <div>
-                            <span class="font-bold text-slate-900 block">VUT (Areál Pod Palackého vrchem / FIT)</span>
-                            <span class="text-[10px] text-slate-500">Bus 49 -> rychlý přestup na linku 50</span>
-                        </div>
-                        <span class="bg-brand-50 text-brand-700 font-black px-2.5 py-1 rounded-lg border border-brand-200">25–30 min</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- PATIČKA -->
-    <footer class="bg-slate-900 text-slate-400 text-center py-6 text-xs mt-12">
-        <p>Student Living Modřice • nám. Svobody 79</p>
-    </footer>
-
-</body>
-</html>
+    <!-- Tabulka s dojezdy -->
+    <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs text-slate-700">
+            <thead class="bg-slate-900 text-white font-bold uppercase text-[11px]">
+                <tr>
+                    <th class="p-3.5 rounded-tl-xl">Název školy / fakulty</th>
+                    <th class="p-3.5">Adresa</th>
+                    <th class="p-3.5 text-center">Bus 49</th>
+                    <th class="p-3.5 text-center">Tram 2</th>
+                    <th class="p-3.5 rounded-tr-xl">Nejrychlejší trasa</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 font-medium">
+                <tr class="hover:bg-slate-50">
+                    <td class="p-3 font-bold text-slate-900">Pedagogická fakulta (PdF MUNI)</td>
+                    <td class="p-3 text-slate-500">Poříčí 623/7, Brno-střed</td>
+                    <td class="p-3 text-center">43 min</td>
+                    <td class="p-3 text-center font-bold text-indigo-600 bg-indigo-50/50">14 min</td>
+                    <td class="p-3"><span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-[10px]"> Tramvaj 2 (o 29 min rychlejší)</span></td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                    <td class="p-3 font-bold text-slate-900">Fakulta architektury (FA VUT)</td>
+                    <td class="p-3 text-slate-500">Poříčí 273/5, Brno-Štýřice</td>
+                    <td class="p-3 text-center">42 min</td>
+                    <td class="p-3 text-center font-bold text-indigo-600 bg-indigo-50/50">20 min</td>
+                    <td class="p-3"><span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-[10px]"> Tramvaj 2 (o 22 min rychlejší)</span></td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                    <td class="p-3 font-bold text-slate-900">Kampus Bohunice (LF, FSpS, FaF MUNI)</td>
+                    <td class="p-3 text-slate-500">Kamenice 753/5, Brno-Bohunice</td>
+                    <td class="p-3 text-center">33 min</td>
+                    <td class="p-3 text-center font-bold text-indigo-600 bg-indigo-50/50">23 min</td>
+                    <td class="p-3"><span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-[10px]"> Tramvaj 2 (o 10 min rychlejší)</span></td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                    <td class="p-3 font-bold text-slate-900">Fakulta sociálních studií (FSS MUNI)</td>
+                    <td class="p-3 text-slate-500">Joštova 218/10, Brno-střed</td>
+                    <td class="p-3 text-center">37 min</td>
+                    <td class="p-3 text-center font-bold text-indigo-600 bg-indigo-50/50">27 min</td>
+                    <td class="p-3"><span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-[10px]"> Tramvaj 2 (o 10 min rychlejší)</span></td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                    <td class="p-3 font-bold text-slate-900">Právnická fakulta (PrF MUNI)</td>
+                    <td class="p-3 text-slate-500">Veveří 158/70, Brno-střed</td>
+                    <td class="p-3 text-center">37 min</td>
+                    <td class="p-3 text-center font-bold text-indigo-600 bg-indigo-50/50">27 min</td>
+                    <td class="p-3"><span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-[10px]"> Tramvaj 2 (o 10 min rychlejší)</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
