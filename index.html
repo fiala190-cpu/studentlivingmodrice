@@ -42,15 +42,13 @@
                     <span class="text-[10px] text-slate-400 block">nám. Svobody 79</span>
                 </div>
             </div>
-            <nav class="hidden md:flex items-center space-x-6 text-xs font-semibold text-slate-300">
-                <a href="#o-projektu" class="hover:text-white transition">O ubytování</a>
-                <a href="#vybaveni" class="hover:text-white transition">Vybavení</a>
-                <a href="#lokalita" class="hover:text-white transition">Doprava & VŠ</a>
-                <a href="#kontakt" class="hover:text-white transition">Kontakt</a>
+            <!-- Odkazy převedené do vzhledu modrých tlačítek, modré tlačítko vpravo nahoře smazáno -->
+            <nav class="hidden md:flex items-center space-x-3 text-xs font-semibold">
+                <a href="#o-projektu" class="bg-brand-600 hover:bg-brand-500 text-white px-3.5 py-2 rounded-xl transition shadow-sm">O ubytování</a>
+                <a href="#vybaveni" class="bg-brand-600 hover:bg-brand-500 text-white px-3.5 py-2 rounded-xl transition shadow-sm">Vybavení</a>
+                <a href="#lokalita" class="bg-brand-600 hover:bg-brand-500 text-white px-3.5 py-2 rounded-xl transition shadow-sm">Doprava & VŠ</a>
+                <a href="#kontakt" class="bg-brand-600 hover:bg-brand-500 text-white px-3.5 py-2 rounded-xl transition shadow-sm">Kontakt</a>
             </nav>
-            <a href="#lokalita" class="bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold px-3 py-2 rounded-xl transition">
-                Doprava & Lokalita
-            </a>
         </div>
     </header>
 
@@ -73,14 +71,14 @@
                     <a href="#lokalita" class="bg-brand-600 hover:bg-brand-500 text-white font-bold px-5 py-3 rounded-xl text-xs sm:text-sm transition shadow-lg shadow-brand-600/30">
                         Prohlédnout dostupnost VŠ
                     </a>
-                    <a href="#vybaveni" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold px-5 py-3 rounded-xl text-xs sm:text-sm transition border border-slate-700">
-                        Vybavení a služby
+                    <a href="#rezervace" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-5 py-3 rounded-xl text-xs sm:text-sm transition shadow-lg">
+                        Rezervovat ubytování
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- 2. PŘEHLED HLAVNÍCH VÝHOD -->
+        <!-- 2. PŘEHLED HLAVNÍCH VÝHOD (Změněné texty dle zadání) -->
         <section class="grid sm:grid-cols-3 gap-6">
             <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm space-y-2">
                 <div class="w-10 h-10 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center font-bold text-lg mb-3">
@@ -88,7 +86,7 @@
                 </div>
                 <h3 class="font-bold text-slate-900 text-base">Zastávka u domu</h3>
                 <p class="text-xs text-slate-500 leading-relaxed">
-                    Autobus č. 49 staví pouhou 1 minutu od vchodu (nám. Svobody). Přímé spojení do nákupního centra Olympia i do Kampusu Bohunice.
+                    Autobus č. 49 staví pouhou 1 minutu od vchodu (nám. Svobody). Výborná dopravní dostupnost na všechny brněnské fakulty, přímé spojení do centra Brna i nákupního centra Olympia Modřice. Další možností dopravy z Modřic je tramvaj č. 2 a vlak.
                 </p>
             </div>
 
@@ -96,7 +94,7 @@
                 <div class="w-10 h-10 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center font-bold text-lg mb-3">
                     <i class="fa-solid fa-wifi"></i>
                 </div>
-                <h3 class="font-bold text-slate-900 text-base">Rychlý internet & Studovny</h3>
+                <h3 class="font-bold text-slate-900 text-base">Rychlý internet</h3>
                 <p class="text-xs text-slate-500 leading-relaxed">
                     Vysokorychlostní Wi-Fi připojení v celém objektu. Ideální podmínky pro náročné online studium i relaxaci.
                 </p>
@@ -108,7 +106,7 @@
                 </div>
                 <h3 class="font-bold text-slate-900 text-base">Bezpečí a komfort</h3>
                 <p class="text-xs text-slate-500 leading-relaxed">
-                    Moderní přístupový systém, správa budovy a vlastní zázemí včetně prádelny a sušičky pro všechny rezidenty.
+                    Bezpečí dvorního traktu, správa budovy a společenská místnost včetně pračky a sušičky pro všechny rezidenty.
                 </p>
             </div>
         </section>
@@ -136,7 +134,7 @@
                 <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100 space-y-1">
                     <i class="fa-solid fa-shirt text-brand-600 text-lg mb-1 block"></i>
                     <h4 class="font-bold text-xs text-slate-900">Prádelna v objektu</h4>
-                    <p class="text-[11px] text-slate-500">K dispozici jsou automatické pračky a sušičky s rezervačním systémem.</p>
+                    <p class="text-[11px] text-slate-500">K dispozici je automatická pračka a sušička s rezervačním systémem.</p>
                 </div>
 
                 <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100 space-y-1">
@@ -147,7 +145,39 @@
             </div>
         </section>
 
-        <!-- 4. SEKCE: LOKALITA, DOPRAVA A KOMPLETNÍ TABULKA VŠ -->
+        <!-- 4. REZERVAČNÍ FORMULÁŘ (Přímo z minulých verzí) -->
+        <section id="rezervace" class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200/80 space-y-6">
+            <div class="border-b border-slate-100 pb-4">
+                <span class="text-xs font-bold text-brand-600 uppercase tracking-wider block">Nezávazná poptávka</span>
+                <h2 class="text-xl font-black text-slate-900">Rezervace ubytowania / Mám zájem o pokoj</h2>
+            </div>
+            
+            <form action="https://formspree.io/f/fiala190@gmail.com" method="POST" class="grid sm:grid-cols-2 gap-4">
+                <div class="space-y-1">
+                    <label class="text-xs font-bold text-slate-700 block">Jméno a příjmení</label>
+                    <input type="text" name="jmeno" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-brand-600">
+                </div>
+                <div class="space-y-1">
+                    <label class="text-xs font-bold text-slate-700 block">E-mailová adresa</label>
+                    <input type="email" name="email" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-brand-600">
+                </div>
+                <div class="space-y-1">
+                    <label class="text-xs font-bold text-slate-700 block">Telefonní číslo</label>
+                    <input type="tel" name="telefon" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-brand-600">
+                </div>
+                <div class="space-y-1">
+                    <label class="text-xs font-bold text-slate-700 block">Typ pokoje / Poznámka</label>
+                    <input type="text" name="poznamka" placeholder="Např. jednolůžkový pokoj, od kdy..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-brand-600">
+                </div>
+                <div class="sm:col-span-2 pt-2">
+                    <button type="submit" class="bg-brand-600 hover:bg-brand-500 text-white font-bold px-6 py-3 rounded-xl text-xs transition shadow-md w-full sm:w-auto">
+                        Odeslat nezávaznou rezervaci
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- 5. SEKCE: LOKALITA, DOPRAVA A KOMPLETNÍ TABULKA VŠ -->
         <section id="lokalita" class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200/80 space-y-6">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
                 <div>
@@ -206,125 +236,4 @@
                             <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Divadelní fakulta (DF JAMU)</td><td class="p-3 text-slate-500">Mozartova 647/1, 602 00 Brno-střed</td><td class="p-3 text-center">31 min</td><td class="p-3 text-center">24 min</td></tr>
                             <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Ekonomicko-správní fakulta (ESF MUNI)</td><td class="p-3 text-slate-500">Lipová 507/41a, 602 00 Brno-Pisárky</td><td class="p-3 text-center">46 min</td><td class="p-3 text-center">30 min</td></tr>
                             <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Fakulta architektury (FA VUT)</td><td class="p-3 text-slate-500">Poříčí 273/5, 639 00 Brno-Štýřice</td><td class="p-3 text-center">42 min</td><td class="p-3 text-center">20 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Fakulta elektrotechniky a komunikačních technologií (FEKT VUT)</td><td class="p-3 text-slate-500">Technická 3058/10, 616 00 Brno-Královo Pole</td><td class="p-3 text-center">49 min</td><td class="p-3 text-center">45 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Fakulta chemická (FCH VUT)</td><td class="p-3 text-slate-500">Purkyňova 464/118, 612 00 Brno-Královo Pole</td><td class="p-3 text-center">45 min</td><td class="p-3 text-center">40 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Fakulta informačních technologií (FIT VUT)</td><td class="p-3 text-slate-500">Božetěchova 1/2, 612 00 Brno-Královo Pole</td><td class="p-3 text-center">51 min</td><td class="p-3 text-center">39 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Fakulta informatiky (FI MUNI)</td><td class="p-3 text-slate-500">Botanická 554/68a, 602 00 Brno-Královo Pole</td><td class="p-3 text-center">44 min</td><td class="p-3 text-center">33 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Fakulta podnikatelská (FP VUT)</td><td class="p-3 text-slate-500">Kolejní 2906/4, 612 00 Brno-Královo Pole</td><td class="p-3 text-center">63 min</td><td class="p-3 text-center">45 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Fakulta sociálních studií (FSS MUNI)</td><td class="p-3 text-slate-500">Joštova 218/10, 602 00 Brno-střed</td><td class="p-3 text-center">37 min</td><td class="p-3 text-center">27 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Fakulta sportovních studií (FSpS MUNI)</td><td class="p-3 text-slate-500">Kamenice 753/5, 625 00 Brno-Bohunice</td><td class="p-3 text-center">33 min</td><td class="p-3 text-center">23 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Fakulta stavební (FAST VUT)</td><td class="p-3 text-slate-500">Veveří 331/95, 602 00 Brno-střed</td><td class="p-3 text-center">45 min</td><td class="p-3 text-center">37 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Fakulta strojního inženýrství (FSI VUT)</td><td class="p-3 text-slate-500">Technická 2896/2, 616 69 Brno-Královo Pole</td><td class="p-3 text-center">49 min</td><td class="p-3 text-center">45 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Fakulta výtvarných umění (FaVU VUT)</td><td class="p-3 text-slate-500">Údolní 244/53, 602 00 Brno-střed</td><td class="p-3 text-center">37 min</td><td class="p-3 text-center">27 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Farmaceutická fakulta (FaF MUNI)</td><td class="p-3 text-slate-500">Kamenice 753/5, 625 00 Brno-Bohunice</td><td class="p-3 text-center">33 min</td><td class="p-3 text-center">23 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Filozofická fakulta (FF MUNI)</td><td class="p-3 text-slate-500">Arna Nováka 1/1, 602 00 Brno-střed</td><td class="p-3 text-center">35 min</td><td class="p-3 text-center">27 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Hudební fakulta (HF JAMU)</td><td class="p-3 text-slate-500">Komenského náměstí 634/6, 602 00 Brno-střed</td><td class="p-3 text-center">41 min</td><td class="p-3 text-center">31 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Lékařská fakulta (LF MUNI)</td><td class="p-3 text-slate-500">Kamenice 753/5, 625 00 Brno-Bohunice</td><td class="p-3 text-center">33 min</td><td class="p-3 text-center">23 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Mendelova univerzita – hlavní výukový areál (PEF, AF, LDF, FRRMS)</td><td class="p-3 text-slate-500">Zemědělská 1665/1, 613 00 Brno-Černá Pole</td><td class="p-3 text-center">45 min</td><td class="p-3 text-center">35 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Pedagogická fakulta (PdF MUNI)</td><td class="p-3 text-slate-500">Poříčí 623/7, 603 00 Brno-střed</td><td class="p-3 text-center">43 min</td><td class="p-3 text-center">14 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Právnická fakulta (PrF MUNI)</td><td class="p-3 text-slate-500">Veveří 158/70, 611 80 Brno-střed</td><td class="p-3 text-center">37 min</td><td class="p-3 text-center">27 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Přírodovědecká fakulta – bio/chem (PřF MUNI)</td><td class="p-3 text-slate-500">Kamenice 753/5, 625 00 Brno-Bohunice</td><td class="p-3 text-center">33 min</td><td class="p-3 text-center">23 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Přírodovědecká fakulta – mat-fyz/geo (PřF MUNI)</td><td class="p-3 text-slate-500">Kotlářská 267/2, 611 37 Brno-střed</td><td class="p-3 text-center">37 min</td><td class="p-3 text-center">31 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Univerzita obrany (UO) – Chodská / Šumavská</td><td class="p-3 text-slate-500">Chodská 17 / Šumavská 4, 602 00 Brno-střed</td><td class="p-3 text-center">46 min</td><td class="p-3 text-center">34 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Univerzita obrany (UO) – Kounicova</td><td class="p-3 text-slate-500">Kounicova 156/65, 602 00 Brno-střed</td><td class="p-3 text-center">38 min</td><td class="p-3 text-center">31 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Veterinární univerzita – výukový kampus (FVL, FVHE)</td><td class="p-3 text-slate-500">Palackého třída 1946/1, 612 00 Brno-Královo Pole</td><td class="p-3 text-center">41 min</td><td class="p-3 text-center">35 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Vysoká škola AMBIS</td><td class="p-3 text-slate-500">Šumavská 524/31, 602 00 Brno-Veveří</td><td class="p-3 text-center">46 min</td><td class="p-3 text-center">34 min</td></tr>
-                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Vysoká škola NEWTON</td><td class="p-3 text-slate-500">Rašínova 103/2, 602 00 Brno-střed</td><td class="p-3 text-center">38 min</td><td class="p-3 text-center">28 min</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. KONTAKTNÍ SEKCE A POČÍTADLO ŽIVÝCH NÁVŠTĚVNÍKŮ -->
-        <section id="kontakt" class="bg-slate-900 text-white rounded-3xl p-8 sm:p-10 shadow-lg space-y-6">
-            <div class="max-w-xl space-y-2">
-                <span class="text-xs font-bold text-brand-400 uppercase tracking-wider block">Máte dotaz nebo zájem o ubytování?</span>
-                <h2 class="text-2xl font-black">Kontaktujte nás</h2>
-                <p class="text-slate-300 text-xs sm:text-sm">
-                    Adresa objektu: <strong>nám. Svobody 79, Modřice</strong>
-                </p>
-            </div>
-
-            <!-- MONITORING: NÁVŠTĚVNÍCI V REÁLNÉM ČASE -->
-            <div class="pt-4 border-t border-slate-800 grid sm:grid-cols-2 gap-4">
-                
-                <!-- Indikátor: Kolik lidí si web PRÁVĚ TEĎ prohlíží -->
-                <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700/60 flex items-center justify-between">
-                    <div class="space-y-1">
-                        <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Živá návštěvnost</span>
-                        <div class="flex items-center space-x-2">
-                            <span class="relative flex h-3 w-3">
-                              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                              <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                            </span>
-                            <span class="text-xs font-bold text-emerald-400">Právě si prohlíží</span>
-                        </div>
-                    </div>
-                    <div class="text-right">
-                        <span id="activeLiveCounter" class="text-2xl font-black text-white bg-slate-900 px-3 py-1 rounded-xl border border-slate-700 inline-block">
-                            1
-                        </span>
-                        <span class="text-[10px] text-slate-400 block mt-1">lidí na webu</span>
-                    </div>
-                </div>
-
-                <!-- Indikátor: Celková návštěvnost -->
-                <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700/60 flex items-center justify-between">
-                    <div class="space-y-1">
-                        <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Celková návštěvnost</span>
-                        <div class="flex items-center space-x-1.5 text-xs text-slate-300 font-semibold">
-                            <i class="fa-solid fa-chart-line text-brand-400"></i>
-                            <span>Počet zobrazení</span>
-                        </div>
-                    </div>
-                    <div class="bg-slate-900 px-3 py-1 rounded-xl border border-slate-700">
-                        <img src="https://hits.secount.com/github/fiala190-cpu/MOBIL-APP-SLM/hits.svg?style=flat-square&color=6366f1" alt="Počet návštěv" class="h-6">
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-    </main>
-
-    <!-- PATIČKA -->
-    <footer class="bg-slate-900 text-slate-400 text-center py-6 text-xs border-t border-slate-800">
-        <p>Student Living Modřice • nám. Svobody 79</p>
-    </footer>
-
-    <!-- SKRIPT PRO AKTIVNÍ POČÍTÁNÍ PŘIPOJENÝCH UŽIVATELŮ -->
-    <script>
-        // BroadcastChannel umožňuje prohlížečům detekovat ostatní otevřené karty/uživatele na stejném zařízení
-        const channel = new BroadcastChannel('slm_live_visitors');
-        let activeVisitors = 1;
-
-        function updateDisplay() {
-            const elem = document.getElementById('activeLiveCounter');
-            if (elem) {
-                elem.textContent = activeVisitors;
-            }
-        }
-
-        // Posílání tónu "jsem tu"
-        setInterval(() => {
-            channel.postMessage('ping');
-        }, 3000);
-
-        channel.onmessage = (event) => {
-            if (event.data === 'ping') {
-                // Pokud přijde ping od jiného okna/uživatele, zvýšíme počet
-                activeVisitors = Math.min(activeVisitors + 1, 5);
-                updateDisplay();
-                setTimeout(() => {
-                    activeVisitors = Math.max(1, activeVisitors - 1);
-                    updateDisplay();
-                }, 4000);
-            }
-        };
-
-        updateDisplay();
-    </script>
-
-</body>
-</html>
+                            <tr class="hover:bg-slate-50"><td class="p-3 font-bold text-slate-900">Fakulta elektrotechniky a komunikačních technologií (FEKT VUT
